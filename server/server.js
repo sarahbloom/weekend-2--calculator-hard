@@ -15,13 +15,36 @@ app.get('/equation', (req, res) => {
 //APP.POST
 app.post('/equation', (req,res) => {
     let dataSubmitted = req.body;
-    equationHistory.push(dataSubmitted)
+    calculateTotal(dataSubmitted); 
+    equationHistory.push(dataSubmitted);
+    console.log("datasubmitted", dataSubmitted);
     res.sendStatus(200);
-    console.log(equationHistory);
-    
 })
 
 //APP.LISTEN
 app.listen(PORT, () => {
     console.log("server is running on port: ", PORT);
 })
+
+function calculateTotal(operation) {
+    if (operation.operator === "+") {
+        let sum = parseInt(operation.firstNumber) + parseInt(operation.secondNumber);
+        operation.total = sum;
+        console.log("sum", sum);
+    }
+    else if (operation.operator === "-") {
+        let difference = parseInt(operation.firstNumber) - parseInt(operation.secondNumber);
+        operation.total = difference;
+        console.log("difference", difference);
+    }
+    else if (operation.operator === "÷") {
+        let quotient = parseInt(operation.firstNumber) / parseInt(operation.secondNumber);
+        operation.total = quotient;
+        console.log("quotient", quotient);
+    }
+    else if (operation.operator === "×") {
+        let product = parseInt(operation.firstNumber) * parseInt(operation.secondNumber);
+        operation.total = product;
+        console.log("product", product);
+    }
+}

@@ -18,7 +18,7 @@ function clickListeners(){
 
 function getAllEquations(){
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/equation"
     }).done(function(response){
         console.log(response);
@@ -47,11 +47,8 @@ function submitSecondnumber(){
         url: "/equation"
     }).done(function(response){
         console.log(equation);
+        storedNumber = "",
         getAllEquations()
     })
 }
-
-
-
-
     
