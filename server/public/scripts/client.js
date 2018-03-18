@@ -1,13 +1,14 @@
-console.log('JS');
+let storedNumber;
 
 $(document).ready(readyNow);
 
 function readyNow(){
     console.log('jQuery loaded');
-    $('.numberButtons').on('click', numberButtons)
+    $('.numberButtons').on('click', firstNumber)
 }
 
-function numberButtons(){
-    console.log(button.value);
-    
+function firstNumber(){
+    console.log("success!");
+    let storedNumber = $(this).data("number")
+    console.log(storedNumber);
 }
