@@ -22,6 +22,7 @@ function getAllEquations(){
         url: "/equation"
     }).done(function(response){
         console.log(response);
+        appendToDom(response);
     });
 }
 
@@ -50,5 +51,12 @@ function submitSecondnumber(){
         storedNumber = "",
         getAllEquations()
     })
+}
+
+function appendToDom(array) {
+    $('#historyLog').empty();
+    for (let equation of array) {
+        $('#historyLog').append(equation);
+    }
 }
     
