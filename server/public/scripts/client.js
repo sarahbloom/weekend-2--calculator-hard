@@ -56,7 +56,7 @@ function submitSecondnumber(){
 function appendToDom(array) {
     $('#historyLog').empty();
     for (let equation of array) {
-        $('#historyLog').append(equation);
+        $('#historyLog').append(equation.firstNumber + equation.operator + equation.secondNumber + " = ", equation.total + '</br>');
     }
 }
     
