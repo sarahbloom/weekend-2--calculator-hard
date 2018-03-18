@@ -1,5 +1,6 @@
 let storedNumber;
-let firstNumber = {};
+let equation = {};
+let operator;
 
 $(document).ready(readyNow);
 
@@ -11,21 +12,28 @@ function readyNow(){
 function clickListeners(){
     $('.numberButtons').on('click', submitNumber);
     $('.calculate').on('click', submitOperator);
+    $('#submit').on('click', submitSecondnumber)
 }
 
 function submitNumber(){
-    let storedNumber = $(this).data("number");
+    storedNumber = $(this).data("number");
     console.log(storedNumber);
-    firstNumber = { firstNumber: storedNumber };
-    console.log(firstNumber);
 }
 
 function submitOperator() {
+    equation = { firstNumber: storedNumber }
     storedNumber = "";
     operator = $(this).data("operator");
-    console.log(operator);   
-    return operator;
+    equation.operator = operator;
+    console.log(equation);   
 }
+
+function submitSecondnumber(){
+    console.log('clicked submit');
+    equation.secondNumber = storedNumber;
+    console.log(equation);
+}
+
 
 
 
