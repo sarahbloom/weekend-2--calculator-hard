@@ -7,12 +7,22 @@ $(document).ready(readyNow);
 function readyNow(){
     console.log('jQuery loaded');
     clickListeners();
+    getAllEquations();
 }
 
 function clickListeners(){
     $('.numberButtons').on('click', submitNumber);
     $('.calculate').on('click', submitOperator);
     $('#submit').on('click', submitSecondnumber)
+}
+
+function getAllEquations(){
+    $.ajax({
+        type: "POST",
+        url: "/equation"
+    }).done(function(response){
+        console.log(response);
+    });
 }
 
 function submitNumber(){
@@ -36,7 +46,8 @@ function submitSecondnumber(){
         data: equation,
         url: "/equation"
     }).done(function(response){
-        console.log('success!');
+        console.log(equation);
+        getAllEquations()
     })
 }
 
