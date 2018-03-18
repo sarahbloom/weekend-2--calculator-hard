@@ -13,7 +13,7 @@ function readyNow(){
 function clickListeners(){
     $('.numberButtons').on('click', submitNumber);
     $('.calculate').on('click', submitOperator);
-    $('#submit').on('click', submitSecondnumber)
+    $('#submit').on('click', submitSecondnumber);
 }
 
 function getAllEquations(){
@@ -59,4 +59,5 @@ function appendToDom(array) {
         $('#historyLog').append(equation.firstNumber + equation.operator + equation.secondNumber + " = ", equation.total + '</br>');
     }
 }
+
     
