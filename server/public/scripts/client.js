@@ -31,7 +31,13 @@ function submitOperator() {
 function submitSecondnumber(){
     console.log('clicked submit');
     equation.secondNumber = storedNumber;
-    console.log(equation);
+    $.ajax({
+        type: "POST",
+        data: equation,
+        url: "/equation"
+    }).done(function(response){
+        console.log('success!');
+    })
 }
 
 
